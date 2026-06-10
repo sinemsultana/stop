@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumière — Luxury Watch</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Georgia', serif;
+    }
+    .brand {
+      color: #c9a84c;
+      letter-spacing: 0.5em;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      opacity: 0.85;
+    }
+    .watch-container {
+      position: relative;
+      filter: drop-shadow(0 0 60px rgba(201, 168, 76, 0.25))
+              drop-shadow(0 20px 40px rgba(0,0,0,0.8));
+    }
+    .tagline {
+      color: #7a6535;
+      letter-spacing: 0.3em;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      margin-top: 2.5rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="brand">Lumière</div>
+  <div class="watch-container">
+    <svg id="watch" width="340" height="340" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="caseGrad" cx="40%" cy="35%" r="65%">
+          <stop offset="0%"   stop-color="#f5e08a"/>
+          <stop offset="30%"  stop-color="#c9a84c"/>
+          <stop offset="70%"  stop-color="#a07830"/>
+          <stop offset="100%" stop-color="#7a5a1a"/>
+        </radialGradient>
+        <radialGradient id="bezelGrad" cx="35%" cy="30%" r="70%">
+          <stop offset="0%"   stop-color="#e8d070"/>
+          <stop offset="40%"  stop-color="#b8902a"/>
+          <stop offset="100%" stop-color="#6b4a10"/>
+        </radialGradient>
+        <radialGradient id="dialGrad" cx="50%" cy="40%" r="60%">
+          <stop offset="0%"   stop-color="#1a1a1a"/>
+          <stop offset="60%"  stop-color="#0d0d0d"/>
+          <stop offset="100%" stop-color="#050505"/>
+        </radialGradient>
+        <linearGradient id="handGold" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%"   stop-color="#f5e08a"/>
+          <stop offset="50%"  stop-color="#c9a84c"/>
+          <stop offset="100%" stop-color="#a07830"/>
+        </linearGradient>
+        <radialGradient id="dialShine" cx="35%" cy="25%" r="50%">
+          <stop offset="0%"  stop-color="rgba(255,255,255,0.04)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+        </radialGradient>
+        <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#f0d878"/>
+          <stop offset="100%" stop-color="#8a6820"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="2" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="handShadow">
+          <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="rgba(0,0,0,0.7)"/>
+        </filter>
+      </defs>
+
+      <path d="M148,42 Q170,20 192,42 L186,88 Q170,78 154,88 Z" fill="#1a1208" stroke="#c9a84c" stroke-width="0.5"/>
+      <path d="M152,44 Q170,26 188,44 L183,82 Q170,73 157,82 Z" fill="#120e05" opacity="0.6"/>
+      <ellipse cx="170" cy="55" rx="2.5" ry="1.5" fill="#2a1e08"/>
+      <ellipse cx="170" cy="63" rx="2.5" ry="1.5" fill="#2a1e08"/>
+      <path d="M148,298 Q170,320 192,298 L186,252 Q170,262 154,252 Z" fill="#1a1208" stroke="#c9a84c" stroke-width="0.5"/>
+      <path d="M152,296 Q170,314 188,296 L183,258 Q170,267 157,258 Z" fill="#120e05" opacity="0.6"/>
+
+      <circle cx="170" cy="170" r="138" fill="url(#caseGrad)"/>
+      <circle cx="170" cy="170" r="138" fill="none" stroke="#f5e08a" stroke-width="0.8" opacity="0.4"/>
+      <circle cx="170" cy="170" r="136" fill="none" stroke="#6b4a10" stroke-width="0.5" opacity="0.5"/>
+      <circle cx="170" cy="170" r="128" fill="url(#bezelGrad)"/>
+      <g id="bezelTicks"></g>
+      <circle cx="170" cy="170" r="112" fill="url(#dialGrad)"/>
+      <circle cx="170" cy="170" r="112" fill="url(#dialShine)"/>
+      <circle cx="170" cy="170" r="112" fill="none" stroke="#c9a84c" stroke-width="0.3" opacity="0.3"/>
+      <circle cx="170" cy="170" r="98" fill="none" stroke="#c9a84c" stroke-width="0.4" opacity="0.2"/>
+      <circle cx="170" cy="170" r="95" fill="none" stroke="#c9a84c" stroke-width="0.4" opacity="0.15"/>
+
+      <g id="hourMarkers" fill="url(#handGold)" filter="url(#glow)"></g>
+      <g id="minuteMarkers" stroke="#c9a84c" stroke-width="0.8" opacity="0.55"></g>
+
+      <text x="170" y="128" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#c9a84c" letter-spacing="4" opacity="0.9">LUMIÈRE</text>
+      <line x1="148" y1="132" x2="192" y2="132" stroke="#c9a84c" stroke-width="0.4" opacity="0.5"/>
+      <text x="170" y="145" text-anchor="middle" font-family="Georgia, serif" font-size="6.5" fill="#c9a84c" letter-spacing="3" opacity="0.5">AUTOMATIC</text>
+
+      <g id="minuteNums"></g>
+
+      <g id="hourHand" style="transform-origin:170px 170px">
+        <rect x="167.5" y="90" width="5" height="85" rx="2.5" fill="url(#handGold)" filter="url(#handShadow)"/>
+        <polygon points="170,82 164,95 176,95" fill="#f5e08a" opacity="0.9"/>
+      </g>
+      <g id="minuteHand" style="transform-origin:170px 170px">
+        <rect x="168.5" y="72" width="3" height="105" rx="1.5" fill="url(#handGold)" filter="url(#handShadow)"/>
+        <polygon points="170,65 166,78 174,78" fill="#f5e08a" opacity="0.95"/>
+        <rect x="169" y="74" width="2" height="8" rx="1" fill="#e8f8e8" opacity="0.7"/>
+      </g>
+      <g id="secondHand" style="transform-origin:170px 170px" opacity="0.45">
+        <line x1="170" y1="82" x2="170" y2="198" stroke="#c9a84c" stroke-width="0.8"/>
+        <line x1="170" y1="198" x2="170" y2="210" stroke="#c9a84c" stroke-width="1.8" opacity="0.5"/>
+      </g>
+
+      <circle cx="170" cy="170" r="5.5" fill="url(#caseGrad)"/>
+      <circle cx="170" cy="170" r="3.5" fill="#f5e08a" opacity="0.8"/>
+      <circle cx="170" cy="170" r="1.5" fill="#1a1208"/>
+
+      <rect x="304" y="162" width="16" height="16" rx="3" fill="url(#crownGrad)" stroke="#f0d878" stroke-width="0.5"/>
+      <line x1="304" y1="165.5" x2="320" y2="165.5" stroke="#6b4a10" stroke-width="0.7"/>
+      <line x1="304" y1="168.5" x2="320" y2="168.5" stroke="#6b4a10" stroke-width="0.7"/>
+      <line x1="304" y1="171.5" x2="320" y2="171.5" stroke="#6b4a10" stroke-width="0.7"/>
+      <line x1="304" y1="174.5" x2="320" y2="174.5" stroke="#6b4a10" stroke-width="0.7"/>
+
+      <ellipse cx="148" cy="130" rx="45" ry="25" fill="rgba(255,255,255,0.025)" transform="rotate(-25,148,130)"/>
+    </svg>
+  </div>
+  <div class="tagline">Maison de Haute Horlogerie · Paris</div>
+
+  <script>
+    const cx = 170, cy = 170;
+    const SVG_NS = "http://www.w3.org/2000/svg";
+
+    function pt(angle, r) {
+      const rad = (angle - 90) * Math.PI / 180;
+      return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)];
+    }
+
+    const bezelG = document.getElementById('bezelTicks');
+    for (let i = 0; i < 60; i++) {
+      const angle = i * 6;
+      const isFive = i % 5 === 0;
+      const r1 = 128, r2 = isFive ? 118 : 122;
+      const [x1,y1] = pt(angle, r1);
+      const [x2,y2] = pt(angle, r2);
+      const line = document.createElementNS(SVG_NS, 'line');
+      line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+      line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+      line.setAttribute('stroke', isFive ? '#f5e08a' : '#c9a84c');
+      line.setAttribute('stroke-width', isFive ? '1.5' : '0.7');
+      line.setAttribute('opacity', isFive ? '0.9' : '0.5');
+      bezelG.appendChild(line);
+    }
+
+    const hourG = document.getElementById('hourMarkers');
+    for (let i = 0; i < 12; i++) {
+      const angle = i * 30;
+      const r = 90;
+      const [bx, by] = pt(angle, r);
+      if (i === 0) {
+        const [t1x,t1y] = pt(angle-2, 83);
+        const [t2x,t2y] = pt(angle+2, 83);
+        const [t3x,t3y] = pt(angle, 76);
+        const tri = document.createElementNS(SVG_NS, 'polygon');
+        tri.setAttribute('points', `${t1x},${t1y} ${t2x},${t2y} ${t3x},${t3y}`);
+        tri.setAttribute('fill', '#f5e08a');
+        hourG.appendChild(tri);
+        [[-7, 3],[0, 3]].forEach(([dy]) => {
+          const rc = document.createElementNS(SVG_NS, 'rect');
+          rc.setAttribute('x', bx - 4); rc.setAttribute('y', by + dy);
+          rc.setAttribute('width', '8'); rc.setAttribute('height', '3'); rc.setAttribute('rx', '1');
+          rc.setAttribute('fill', 'url(#handGold)');
+          rc.setAttribute('transform', `rotate(${angle},${bx},${by})`);
+          hourG.appendChild(rc);
+        });
+      } else {
+        const rect = document.createElementNS(SVG_NS, 'rect');
+        rect.setAttribute('x', bx - 3); rect.setAttribute('y', by - 8);
+        rect.setAttribute('width', '6'); rect.setAttribute('height', '16'); rect.setAttribute('rx', '1.5');
+        rect.setAttribute('fill', 'url(#handGold)');
+        rect.setAttribute('transform', `rotate(${angle},${bx},${by})`);
+        hourG.appendChild(rect);
+      }
+    }
+
+    const minG = document.getElementById('minuteMarkers');
+    for (let i = 0; i < 60; i++) {
+      if (i % 5 === 0) continue;
+      const angle = i * 6;
+      const [x1,y1] = pt(angle, 107);
+      const [x2,y2] = pt(angle, 112);
+      const line = document.createElementNS(SVG_NS, 'line');
+      line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+      line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+      minG.appendChild(line);
+    }
+
+    const numG = document.getElementById('minuteNums');
+    [5,10,15,20,25,30,35,40,45,50,55,60].forEach((label, i) => {
+      const angle = (i+1) * 30;
+      const [tx, ty] = pt(angle, 77);
+      const text = document.createElementNS(SVG_NS, 'text');
+      text.setAttribute('x', tx); text.setAttribute('y', ty + 3.5);
+      text.setAttribute('text-anchor', 'middle');
+      text.setAttribute('font-family', 'Georgia, serif');
+      text.setAttribute('font-size', label % 15 === 0 ? '8.5' : '6.5');
+      text.setAttribute('fill', '#c9a84c');
+      text.setAttribute('opacity', label % 15 === 0 ? '0.85' : '0.55');
+      text.textContent = label;
+      numG.appendChild(text);
+    });
+
+    function updateHands() {
+      const now = new Date();
+      const h = now.getHours() % 12, m = now.getMinutes(),
+            s = now.getSeconds(), ms = now.getMilliseconds();
+      document.getElementById('secondHand').style.transform = `rotate(${s*6 + ms*0.006}deg)`;
+      document.getElementById('minuteHand').style.transform = `rotate(${m*6 + s*0.1}deg)`;
+      document.getElementById('hourHand').style.transform   = `rotate(${h*30 + m*0.5}deg)`;
+    }
+    updateHands();
+    setInterval(updateHands, 50);
+  </script>
+</body>
+</html>
